@@ -17,7 +17,7 @@ const HomePage: VFC = () => {
 
   return (
     <>
-      <h2>React Router(V6)＋Firebases AuthUIサンプル</h2>
+      <h2>ドッグノート</h2>
       <div>
         {isSignedIn ? (
           <>

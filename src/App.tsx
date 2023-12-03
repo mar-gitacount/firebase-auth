@@ -6,6 +6,7 @@ import PublicPage from './pages/PublicPage';
 import PrivatePage from './pages/PrivatePage';
 import LoginPage from './pages/LoginPage';
 import './App.css';
+import SignIn from 'pages/SignIn';
 
 /**
  * ルート定義
@@ -28,7 +29,9 @@ const App: VFC = () => {
             </RequireAuth>
           }
         />
-        <Route path="/signin" element={<LoginPage moveTo="/" />} />
+        
+        {/* <Route path="/signin" element={<LoginPage moveTo="/" />} /> */}
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
       <div>
         <NavLink to="/">Home</NavLink>
