@@ -414,3 +414,10 @@ ReactRouterV6で&lt;PrivateRoute&gt;を利用すると下記のエラーが発�
 ```
 Error: [PrivateRoute] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`
 ```
+
+##　githubでpushする際(飽くまで個人用)
+```
+git remote set-url origin git@github.com:mar-gitacount/firebase-auth.git
+git push origin mastaer 
+```
+
