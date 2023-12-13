@@ -12,7 +12,7 @@ import { Calendar } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import { title } from 'process';
 import { start } from 'repl';
-
+import { PopUpComponent } from 'modules/PopupComponent';
 
 // イベントデータの型
 interface EventData {
@@ -33,6 +33,9 @@ const PrivatePage: VFC = () => {
   const { isLoading, email, userName, userId } = useAuthState();
   const [events, setEvents] = useState<EventData[]>([]);
   const [dogid, setDogid] = useState<DogsData[]>([]);
+  const [popupFlag, setPopupFlag] = useState<boolean>(false);
+
+
   // ポップアップ制御の定数
   const [showPopup, setShowPopup] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState({
@@ -243,7 +246,7 @@ const PrivatePage: VFC = () => {
   };
 
 
-
+  
   //犬の名前を選択したら、それを取得する。
   const handleDogNameClick = (id: string) => {
     console.log('Clicked dog ID:', id);
@@ -262,6 +265,7 @@ const PrivatePage: VFC = () => {
   };
 
   return (
+    
     <>
       {showPopup && (
         <>
@@ -334,9 +338,15 @@ const PrivatePage: VFC = () => {
             ...event,
             id: event.id, // 既存のイベントデータに存在するIDフィールドをidとして追加
           }))}
-          eventClick={(clickInfo: any) => handleEventClick(clickInfo)}
+          //既存のイベント
+          // eventClick={(clickInfo: any) => handleEventClick(clickInfo)}
         // dateClick={handleDateClick}
         />
+        
+        <section className="h-[2000px] w-full">
+          <button onClick={() => setPopupFlag(false)}>popup</button>
+          <PopUpComponent viewFlag={popupFlag} setViewFlag={setPopupFlag} />
+        </section>
       </div>
     </>
   );
