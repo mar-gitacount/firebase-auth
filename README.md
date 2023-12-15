@@ -418,6 +418,6 @@ Error: [PrivateRoute] is not a <Route> component. All component children of <Rou
 ##　githubでpushする際(飽くまで個人用)
 ```
 git remote set-url origin git@github.com:mar-gitacount/firebase-auth.git
-git push origin mastaer 
+git push origin master 
 ```
 

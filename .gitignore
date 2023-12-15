@@ -26,3 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 yes*
+no*
+
+public * 
+private * 
