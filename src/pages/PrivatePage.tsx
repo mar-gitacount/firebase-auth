@@ -143,9 +143,9 @@ const PrivatePage: VFC = () => {
 
   const handleDateSelect = (selectionInfo: DateClickArg) => {
     console.log('selectionInfo: ', selectionInfo); // 選択した範囲の情報をconsoleに出力
-    const calendarApi = selectionInfo.view.calendar;
+    // const calendarApi = selectionInfo.view.calendar;
 
-    calendarApi.unselect(); // 選択した部分の選択を解除
+    // calendarApi.unselect(); // 選択した部分の選択を解除
   };
 
 
@@ -315,18 +315,18 @@ const PrivatePage: VFC = () => {
               info.dayEl.style.backgroundColor = 'red';
             }
           }}
-          eventClick={(clickInfo) => {
-            // console.log(clickInfo)
-            alert(clickInfo)
-            if (clickInfo.event) {
-              const event = clickInfo.event;
-              alert('Clicked on event: ' + event.title);
-              // その他の処理
-            } else if (clickInfo.date) {
-              alert('Clicked on date: ' + clickInfo.dateStr);
-              // その他の処理
-            }
-          }}
+          // eventClick={(clickInfo) => {
+          //   // console.log(clickInfo)
+          //   alert(clickInfo)
+          //   if (clickInfo.event) {
+          //     const event = clickInfo.event;
+          //     alert('Clicked on event: ' + event.title);
+          //     // その他の処理
+          //   } else if (clickInfo.date) {
+          //     alert('Clicked on date: ' + clickInfo.dateStr);
+          //     // その他の処理
+          //   }
+          // }}
           // 他のプ
           // select={handleDateClick}
 
@@ -344,7 +344,7 @@ const PrivatePage: VFC = () => {
         />
         
         <section className="h-[2000px] w-full">
-          <button onClick={() => setPopupFlag(false)}>popup</button>
+          <button onClick={() => setPopupFlag(true)}>popup</button>
           <PopUpComponent viewFlag={popupFlag} setViewFlag={setPopupFlag} />
         </section>
       </div>
