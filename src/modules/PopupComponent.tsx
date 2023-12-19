@@ -1,6 +1,7 @@
-import React, { memo, useEffect } from 'react';
-
-import { RxCross1 } from 'react-icons/rx';
+import React, { memo, useState,useEffect } from 'react';
+// import { VFC, useState, useEffect } from 'react';
+import {EventData} from 'hooks/interfases';
+// import { RxCross1 } from 'react-icons/rx';
 
 type Props = {
     viewFlag: boolean;
@@ -9,9 +10,11 @@ type Props = {
 
 export const PopUpComponent = memo((props: Props) => {
     const { viewFlag, setViewFlag } = props;
+    const [events, setEvents] = useState<EventData[]>([]);
     useEffect(() => {
         // 背景画面固定用関数
         const registerBackgroundFixed = () => {
+            console.log("ポップアップが呼び出されている。")
             const body = document.body;
             const scrollWidth = window.innerWidth - body.clientWidth;
             body.style.marginRight = `${scrollWidth}px`;

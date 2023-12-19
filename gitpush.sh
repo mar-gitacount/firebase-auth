@@ -18,7 +18,7 @@ if [ "$userInput" = "y" ]; then
     git push origin master
     # 続行する処理をここに記述します
 elif [ "$userInput" = "n" ]; then
-    echo "キャンセルします"
+    echo "キャンセルします。正しいブランチに遷移し、pushしてください。"
     # キャンセルする処理をここに記述します
 else
     echo "無効な入力です"

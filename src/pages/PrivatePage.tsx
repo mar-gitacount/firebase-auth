@@ -12,7 +12,9 @@ import { Calendar } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import { title } from 'process';
 import { start } from 'repl';
-import { PopUpComponent } from 'modules/PopupComponent';
+import  Mydialog  from 'modules/Mydialog';
+
+// import { PopUpComponent } from 'modules/PopupComponent';
 
 // イベントデータの型
 interface EventData {
@@ -34,7 +36,25 @@ const PrivatePage: VFC = () => {
   const [events, setEvents] = useState<EventData[]>([]);
   const [dogid, setDogid] = useState<DogsData[]>([]);
   const [popupFlag, setPopupFlag] = useState<boolean>(false);
-
+  //!次回は以下変数でデータ格納をためす。
+  //! const [selectedDate, setSelectedDate] = useState(null);
+  const popuphandle = () =>{
+    setPopupFlag(true);
+    // if (popupFlag){
+    //   console.log("true")
+    //   setPopupFlag(false);
+    // }
+    // else{
+    //   console.log("false");
+    //   setPopupFlag(true);
+    // }
+  }
+  const [viewitem, setViewitem] = useState<EventData>({
+    id: '1',
+    title: 'Sample Event',
+    start: new Date(),
+    end: new Date(),
+  });
 
   // ポップアップ制御の定数
   const [showPopup, setShowPopup] = useState(false);
@@ -112,7 +132,7 @@ const PrivatePage: VFC = () => {
         const dogeventData: EventData[] = [];
 
         const dogDataArray = dogsCollectionquerySnapshot.docs.map((doc) => {
-          console.log(doc.id)
+          console.log(doc.id);
           const eventData: EventData = {
             id: doc.id || '',
             title: doc.data().title || '',
@@ -120,6 +140,7 @@ const PrivatePage: VFC = () => {
             end: doc.data().end?.toDate() || new Date(),
           };
           dogeventData.push(eventData)
+          
           return eventData;
         });
 
@@ -307,9 +328,25 @@ const PrivatePage: VFC = () => {
           selectable={true}
           selectMirror={true}
           dateClick={(info) => {
-            alert('Clicked on: ' + info.dateStr);
-            alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-            alert('Current view: ' + info.view.type);
+            // 以下データ取得アラート一覧
+            // alert('Clicked on: ' + info.dateStr);
+            // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+            // alert('Current view: ' + info.view.type);
+            //ここでダイアログコンポーネントに値を渡す。
+            // <Mydialog data={info.dateStr} />
+            const eventData: EventData = {
+              id: 'test',
+              title: 'testtitle',
+              start: info.date || new Date(),
+              end: info.date || new Date(),
+            };
+            console.log("古カレンダー")
+            // ここでフラグを立てるて、日時イベントなどをセットする。
+            setViewitem(eventData);
+            popuphandle()
+
+            // setPopupFlag(true);
+            // <Mydialog viewFlag={popupFlag} setViewFlag={setPopupFlag} viewitem={eventData}/> 
             // change the day's background color just for fun
             if (info.dayEl) {
               info.dayEl.style.backgroundColor = 'red';
@@ -344,8 +381,12 @@ const PrivatePage: VFC = () => {
         />
         
         <section className="h-[2000px] w-full">
-          <button onClick={() => setPopupFlag(true)}>popup</button>
-          <PopUpComponent viewFlag={popupFlag} setViewFlag={setPopupFlag} />
+        {popupFlag &&
+        <Mydialog viewFlag={popupFlag} setViewFlag={setPopupFlag} viewitem={viewitem}/>
+}  
+        {/* <button onClick={() => setPopupFlag(true)}>popup</button> */}
+          {/* <Mydialog data={dogid} /> */}
+          {/* <PopUpComponent viewFlag={popupFlag} setViewFlag={setPopupFlag} /> */}
         </section>
       </div>
     </>
