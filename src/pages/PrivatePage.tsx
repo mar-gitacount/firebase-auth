@@ -36,8 +36,6 @@ const PrivatePage: VFC = () => {
   const [events, setEvents] = useState<EventData[]>([]);
   const [dogid, setDogid] = useState<DogsData[]>([]);
   const [popupFlag, setPopupFlag] = useState<boolean>(false);
-  //!次回は以下変数でデータ格納をためす。
-  //! const [selectedDate, setSelectedDate] = useState(null);
   const popuphandle = () =>{
     setPopupFlag(true);
     // if (popupFlag){
@@ -340,7 +338,6 @@ const PrivatePage: VFC = () => {
               start: info.date || new Date(),
               end: info.date || new Date(),
             };
-            console.log("古カレンダー")
             // ここでフラグを立てるて、日時イベントなどをセットする。
             setViewitem(eventData);
             popuphandle()
@@ -381,6 +378,7 @@ const PrivatePage: VFC = () => {
         />
         
         <section className="h-[2000px] w-full">
+        
         {popupFlag &&
         <Mydialog viewFlag={popupFlag} setViewFlag={setPopupFlag} viewitem={viewitem}/>
 }  
