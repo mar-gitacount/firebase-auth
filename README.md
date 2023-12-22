@@ -414,39 +414,3 @@ ReactRouterV6で&lt;PrivateRoute&gt;を利用すると下記のエラーが発�
 ```
 Error: [PrivateRoute] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`
 ```
-
-##　githubでpushする際(飽くまで個人用)
-```
-git remote set-url origin git@github.com:mar-gitacount/dognote.git
-git push origin master 
-```
-
-##よく使うdockerコマンド
-
-```
-#ビルドコマンド
-docker-compose build
-
-#コンテナ一覧表示する
-docker ps -a
-
-# 関連するコンテナを停止します
-docker stop 7a2c720550cc
-
-# コンテナを削除します
-docker rm 7a2c720550cc
-
-# イメージを削除します
-docker rmi 7d434f029146
-
-```
-
-
-#その他設定等
-
-```
-#コメント書き方
-//?　青
-//!　赤
-//*  緑
-```
