@@ -32,11 +32,11 @@ const HomePage: VFC = () => {
         <li>
           <NavLink to="/public">ログイン不要ページ</NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/private">ログインが必要なページ</NavLink>
           <br />
           (ログインページ表示後にページ遷移)
-        </li>
+        </li> */}
         <li>
           {isSignedIn ? null : <NavLink to="/signin">ログインページ</NavLink>}
         </li>
