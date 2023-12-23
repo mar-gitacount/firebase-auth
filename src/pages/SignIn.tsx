@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { signInWithEmailAndPassword, onAuthStateChanged, User, getAuth } from "firebase/auth"; // getAuth をインポート
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'; // useHistory をインポート
 import { auth } from "../firebase"; // Firebase の設定ファイルを正しくインポート
 import { doc, setDoc, getFirestore } from 'firebase/firestore';
 
 const SignIn = () => {  
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-    const navigate = useNavigate();
+    const history = useHistory(); // useHistory フックを使ってナビゲーション用のインスタンスを取得
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const SignIn = () => {
                 loginPassword
             );
             // ログイン成功時のリダイレクト
-      navigate('/private'); // privateページに遷移
+            history.push('/private'); // history.push を使って private ページに遷移
         } catch (error) {
             alert("メールアドレスまたはパスワードが間違っています");
         }

@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { BrowserRouter, Router,Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
 import RequireAuth from './components/RequireAuth';
 import HomePage from './pages/HomePage';
 import PublicPage from './pages/PublicPage';
@@ -12,24 +12,24 @@ const App: VFC = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/public" element={<PublicPage />} />
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/public" component={PublicPage} />
           <Route
             path="/private"
-            element={
+            render={() => (
               <RequireAuth>
                 <PrivatePage />
               </RequireAuth>
-            }
+            )}
           />
-          <Route path="/signin" element={<SignIn />} />
-        </Routes>
+          <Route path="/signin" component={SignIn} />
+        </Switch>
         <div>
           <NavLink to="/">Home</NavLink>
         </div>
       </div>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 };
 
