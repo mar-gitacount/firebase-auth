@@ -10,7 +10,7 @@ import SignIn from 'pages/SignIn';
 
 const App: VFC = () => {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <div className="App">
         <Switch>
           <Route path="/" exact component={HomePage} />
@@ -29,7 +29,7 @@ const App: VFC = () => {
           <NavLink to="/">Home</NavLink>
         </div>
       </div>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 };
 
