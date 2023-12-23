@@ -30,3 +30,5 @@ no*
 
 public * 
 private * 
+
+package-lock.json
