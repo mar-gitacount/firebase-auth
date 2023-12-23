@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Router,Routes, Route, NavLink } from 'react-router-dom';
 import RequireAuth from './components/RequireAuth';
 import HomePage from './pages/HomePage';
 import PublicPage from './pages/PublicPage';
@@ -10,7 +10,7 @@ import SignIn from 'pages/SignIn';
 
 const App: VFC = () => {
   return (
-    // <BrowserRouter>
+    <BrowserRouter>
       <div className="App">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -29,7 +29,7 @@ const App: VFC = () => {
           <NavLink to="/">Home</NavLink>
         </div>
       </div>
-    /* </BrowserRouter> */
+      </BrowserRouter>
   );
 };
 
