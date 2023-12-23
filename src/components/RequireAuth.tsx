@@ -1,5 +1,6 @@
 import useAuthState from 'hooks/useAuthState';
-import LoginPage from 'pages/LoginPage';
+// import LoginPage from 'pages/LoginPage';
+import SignInPage from 'pages/SignIn';
 
 /**
  * 認証が必要なページをラップすることで、認証を強制するコンポーネント
@@ -10,7 +11,7 @@ const RequireAuth = ({ children }: { children: JSX.Element }) => {
   if (isLoading) {
     return <></>;
   }
-  return isSignedIn ? children : <LoginPage />;
+  return isSignedIn ? children : <SignInPage />;
 };
 
 export default RequireAuth;
