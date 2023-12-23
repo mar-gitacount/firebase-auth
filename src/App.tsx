@@ -4,7 +4,7 @@ import RequireAuth from './components/RequireAuth';
 import HomePage from './pages/HomePage';
 import PublicPage from './pages/PublicPage';
 import PrivatePage from './pages/PrivatePage';
-import LoginPage from './pages/LoginPage';
+// import LoginPage from './pages/LoginPage';
 import './App.css';
 import SignIn from 'pages/SignIn';
 
