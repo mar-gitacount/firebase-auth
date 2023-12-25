@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site":"dog-note",
     "public": "build",
     "ignore": [
       "firebase.json",

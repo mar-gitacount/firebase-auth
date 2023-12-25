@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "healthgroup-ec00a"
-  }
+    "default": "healthgroup-ec00a",
+    "yes": "dog-note"
+  },
+  "targets": {},
+  "etags": {}
 }
