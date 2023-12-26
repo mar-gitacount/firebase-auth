@@ -15,14 +15,14 @@ const App: VFC = () => {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/public" component={PublicPage} />
-          <Route
+          {/* <Route
             path="/private"
             render={() => (
               <RequireAuth>
                 <PrivatePage />
               </RequireAuth>
             )}
-          />
+          /> */}
           <Route path="/signin" component={SignIn} />
         </Switch>
         <div>
